@@ -4,35 +4,20 @@ import Routers from "./components/Routes/index"
 import axios from "axios";
 
 const App = () => {
-    const [uid,setUid] = useState(null);
-
-    useEffect(() => {
-       const fetchToken = async () => { 
-        await axios({
-            method:"get",
-            url:`${process.env.REACT_APP_API_URL}api/user/login`,
-            withCredentials:true
-
-        })
-        .then((res) => {
-            setUid(res.data);
-        })
-        .catch((err) => console.log("No token"));
-    };
-    fetchToken();
-    }, [uid]);
-
-
+  const [items, setItems] = useState([]);
+  const token = localStorage.getItem('token');
+  console.log(token);
+    //const dispatch = useDispatch();
+  
+    
+  
     return (
-        
-        
-        <Routers/>
-        
-
-        
+      <UidContext.Provider value={token}>
+        <Routers />
+      </UidContext.Provider>
     )
-}
-
-export default App;
+  }
+  
+  export default App;
 
 

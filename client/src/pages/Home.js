@@ -4,16 +4,16 @@ import SignInForm from "../components/Log/SignInForm";
 
 
 const Home = ()=> {
-  const userId = JSON.parse(localStorage.getItem("user"));
+ // const userId = JSON.parse(localStorage.getItem("user"));
   
   
   return(
-    {userId? :
-    (<div>
+    
+    <div>
       <h1>Home page</h1>
 
-    </div>):
-    }
+    </div>
+    
   );
 };
 

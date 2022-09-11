@@ -4,11 +4,12 @@ import { UidContext } from "../components/AppContext";
 
 
 const Profil = () => {
-  const uid = useContext(UidContext);
+  const token = useContext(UidContext);
+  console.log(token);
 
   return (
     <div className="profil-page">
-      {uid ? (
+      {token ? (
         <h1>Update Profile</h1>
       ) : (
         <div className="log-container">
