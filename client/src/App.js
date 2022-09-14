@@ -3,7 +3,7 @@ import { UidContext } from "./components/AppContext";
 import Routers from "./components/Routes/index"
 
 import { useDispatch } from "react-redux";
-import { getUser } from "./action/user.action";
+import { getUser } from "./actions/user.action";
 
 const App = () => {
   const [items, setItems] = useState([]);

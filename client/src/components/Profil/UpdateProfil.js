@@ -6,6 +6,7 @@ import UploadImg from "./Upload.Img";
 
 const UpdateProfil = () => {
     const userData = useSelector((store) => store.userReducer);
+   
 
     return (
     <div className="profil-container">
@@ -17,6 +18,11 @@ const UpdateProfil = () => {
             <img src={userData.picture} alt="user-picture"/>
             <UploadImg/>
         </div>
+        <h4>Abonement {userData.following ? userData.following.lenght :""}</h4>
+        <h4>Abonnés {userData.followers ? userData.followers.lenght :""} </h4>
+        
+            
+        
 
        </div>
     </div>

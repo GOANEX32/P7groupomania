@@ -1,4 +1,4 @@
-import { GET_USER, UPLOAD_PICTURE } from "../action/user.action";
+import { GET_USER, UPLOAD_PICTURE } from "../actions/user.action";
 
 const inititalState = {};
 

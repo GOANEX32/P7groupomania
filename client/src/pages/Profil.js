@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Log from "../components/Log";
 import { UidContext } from "../components/AppContext";
 import LeftNav from "../components/LeftNav";
+import UpdateProfil from "../components/Profil/UpdateProfil";
 
 
 const Profil = () => {
@@ -11,7 +12,11 @@ const Profil = () => {
   return (
     <div className="profil-page">
       {token ? (
-        <LeftNav/>
+        <div>
+        
+        
+        <UpdateProfil/>
+        </div>
       ) : (
         <div className="log-container">
           <Log signin={false} signup={true} />

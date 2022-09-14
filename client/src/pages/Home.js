@@ -47,7 +47,7 @@ const Home = ()=> {
 
           </div>
           <div className="post-contenu">
-            <img></img>
+            <img sr></img>
             <p>{post.message}</p>
 
           </div>
