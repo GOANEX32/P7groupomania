@@ -67,7 +67,7 @@ const Card = ()=> {
           </div>
           <div className="post-action">
             <LikeButton post={post}/>
-            <button id="button-like"></button>
+            
             <button id="bouton-suprimer"></button>
             <button id="bouton-modif"></button>
             

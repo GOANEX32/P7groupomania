@@ -13,15 +13,19 @@ const LikeButton = ({ post }) => {
   
 
   const like = () => {
+    
     return axios({
         method: "patch",
         url: `${process.env.REACT_APP_API_URL}api/post/like-post/`+post._id,
         data: {id : uid},
       }).catch((err) => console.log(err));
+      
+      
     
   };
 
   const unlike = async (post_id) =>  {
+    
     return axios({
         method: "patch",
         url: `${process.env.REACT_APP_API_URL}api/post/unlike-post/`+post_id,
