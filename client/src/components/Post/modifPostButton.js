@@ -13,7 +13,7 @@ const modifPostButton = ({post}) =>{
           return axios({
             method: "put",
             url: `${process.env.REACT_APP_API_URL}api/post/${post._id}`,
-            data: { message },
+            data: { },
           })
             
             

@@ -1,0 +1,11 @@
+.nav-container{
+    display: flex;
+    
+    flex-direction: row;
+    justify-content: space-evenly
+
+}
+.nav-item{
+    display: flex;
+    flex-direction: row;
+}

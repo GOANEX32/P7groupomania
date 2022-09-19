@@ -110,6 +110,7 @@ module.exports.deletePost = (req, res) => {
 }
 
 module.exports.likePost = async (req, res) => {
+    
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
 
@@ -126,7 +127,7 @@ module.exports.likePost = async (req, res) => {
 
         );
         await UserModel.findByIdAndUpdate(
-            req.body.Id,
+            req.body.id,
             {
                 $addToSet : { likes : req.params.id }
             },
@@ -144,28 +145,32 @@ module.exports.likePost = async (req, res) => {
 
 
 module.exports.unlikePost = async (req, res) => {
+    console.log(req.params.id,req.body.id)
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
 
     try {
         await PostModel.findByIdAndUpdate(
+
             req.params.id,
             {
                 $pull : { likers : req.body.id }
             },
             { new: true },
             (err, docs) => {
+                
                 if(err) return res.status(400).send(err);
             }
 
         );
         await UserModel.findByIdAndUpdate(
-            req.body.Id,
+            req.body.id,
             {
                 $pull : { likes : req.params.id }
             },
             { new: true },
             (err, docs) => {
+                console.log(docs);
                 if(!err) res.send(docs);
                 else return res.status(400).send(err);
             }

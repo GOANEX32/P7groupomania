@@ -7,6 +7,7 @@ const createPost = () => {
     
     const [img, setImg] = useState("");
     const [text, setText] = useState("");
+    const uid = localStorage.getItem('user');
     
 
     const requestPost = async (e) => {
@@ -14,16 +15,19 @@ const createPost = () => {
             method: "post",
             url: `${process.env.REACT_APP_API_URL}api/post`,
             data: {
-              img,
-              text:text,
+              posterId:uid,
+              message:text,
              
             }})
+            .catch((err) => {
+              console.log(err);
+            });
         
 
     }
 
     return (
-        <>
+        
         <form action="" onSubmit={requestPost} id="sign-up-form">
           <label htmlFor="img">image</label>
           <br />
@@ -45,10 +49,10 @@ const createPost = () => {
             onChange={(e) => setText(e.target.value)}
             value={text}
           />
-          
+          <input type="submit" value="publier" />
           </form>
-          </>
+          
     )
 }
 
-export default createPost
+export default createPost;

@@ -8,8 +8,10 @@ import deletePost from "./deletePost";
 
 
 
+
 const Card = () => {
   const [posts,setPosts] = useState([]);
+
   const token = localStorage.getItem("token");
  const listPosts = () => {
   axios.get(`${process.env.REACT_APP_API_URL}api/post/`,
@@ -54,19 +56,7 @@ const Card = () => {
             <p>{post.message}</p>
             <img ></img>
             
-            {post.comments.map((comments,index) =>
-            <div>
-            <p className="comment-psuedo">{comments.commenterPseudo}</p>
-            <p className="comment">{comments.text}</p>
-            </div>
             
-
-            )}
-
-            
-
-            
-
           </div>
           <div className="post-action">
             <LikeButton post={post}/>

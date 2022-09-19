@@ -8,7 +8,8 @@ import axios from "axios"
 
 const LikeButton = ({ post }) => {
   const [liked, setLiked] = useState(false);
-  const uid = useContext(UidContext);
+  
+  const uid = localStorage.getItem('user');
   
   
 
@@ -24,11 +25,12 @@ const LikeButton = ({ post }) => {
     
   };
 
-  const unlike = async (post_id) =>  {
+  const unlike = () =>  {
+    console.log("unlike",uid,post._id);
     
     return axios({
         method: "patch",
-        url: `${process.env.REACT_APP_API_URL}api/post/unlike-post/`+post_id,
+        url: `${process.env.REACT_APP_API_URL}api/post/unlike-post/`+post._id,
         data: { id: uid },
       }).catch((err) => console.log(err));
     
