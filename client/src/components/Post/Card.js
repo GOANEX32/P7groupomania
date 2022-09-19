@@ -1,11 +1,14 @@
 import { json } from "body-parser";
 import React, { useEffect, useState } from "react";
-import LikeButton from "./LikeButton";
-
 import axios from "axios"
+import LikeButton from "./LikeButton";
+import modifPostButton from "./modifPostButton";
+import deletePost from "./deletePost";
 
 
-const Card = ()=> {
+
+
+const Card = () => {
   const [posts,setPosts] = useState([]);
   const token = localStorage.getItem("token");
  const listPosts = () => {
@@ -67,9 +70,9 @@ const Card = ()=> {
           </div>
           <div className="post-action">
             <LikeButton post={post}/>
+            <modifPostButton post={post} />
+            <deletePost post={post}/>
             
-            <button id="bouton-suprimer"></button>
-            <button id="bouton-modif"></button>
             
           </div>
 
