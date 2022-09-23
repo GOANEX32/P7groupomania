@@ -54,7 +54,7 @@ const Card = () => {
           </div>
           <div className="post-contenu">
             <p>{post.message}</p>
-            <img ></img>
+            <img src={post.picture} ></img>
             
             
           </div>

@@ -7,6 +7,7 @@ const upload = multer();
 
 
 
+
 // auth routes
 router.post("/register", authController.signUp);
 router.post("/login", authController.signIn);
