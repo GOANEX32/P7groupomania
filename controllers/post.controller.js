@@ -17,43 +17,20 @@ module.exports.readPost = (req, res) => {
 
 module.exports.createPost = async (req, res) => {
     let fileName;
-    
-  
-    if (req.file !== null) {
-      try {
-        if (
-          req.file.detectedMimeType != "image/jpg" &&
-          req.file.detectedMimeType != "image/png" &&
-          req.file.detectedMimeType != "image/jpeg"
-        )
-          throw Error("invalid file");
-  
-        if (req.file.size > 500000) throw Error("max size");
-      } catch (err) {
-        const errors = uploadErrors(err);
-        return res.status(201).json({ errors });
-      }
-      fileName = req.body.posterId + Date.now() + ".jpg";
-  
-      await pipeline(
-        req.file.stream,
-        fs.createWriteStream(
-          `${__dirname}/../client/public/uploads/posts/${fileName}`
-        )
-      );
-    }
-  
+    console.log(req.file)
+
+    console.log(JSON.stringify(req.body));
+    fileName = (req.file !== null && req.file !== undefined && req.file !== "") ? `${req.protocol}://${req.get("host")}/images/${req.file.filename}` : "" ;
     const newPost = new PostModel({
       posterId: req.body.posterId,
       message: req.body.message,
-      picture: req.file !== null ? "./uploads/posts/" + fileName : "",
+      picture: fileName,
       video: req.body.video,
       likers: [],
       comments: [],
     });
-    console.log(req.body.message);
     
-  
+    
     try {
       const post = await newPost.save();
       return res.status(201).json(post);

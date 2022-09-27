@@ -6,7 +6,7 @@ import axios from "axios"
 
 
 
-const modifPostButton = ({post}) =>{
+const ModifPostButton = ({post}) =>{
 
     const updatePost = () => {
         
@@ -32,4 +32,4 @@ const modifPostButton = ({post}) =>{
     )
 }
 
-export default modifPostButton
+export default ModifPostButton

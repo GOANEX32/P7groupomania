@@ -2,8 +2,8 @@ import { json } from "body-parser";
 import React, { useEffect, useState } from "react";
 import axios from "axios"
 import LikeButton from "./LikeButton";
-import modifPostButton from "./modifPostButton";
-import deletePost from "./deletePost";
+import ModifPostButton from "./modifPostButton";
+import  Corbeille from "./deletePost";
 
 
 
@@ -60,8 +60,8 @@ const Card = () => {
           </div>
           <div className="post-action">
             <LikeButton post={post}/>
-            <modifPostButton post={post} />
-            <deletePost post={post}/>
+            <ModifPostButton post={post} />
+            <Corbeille post={post}/>
             
             
           </div>

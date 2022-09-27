@@ -9,41 +9,45 @@ const CreatePost = () => {
   const [img, setImg] = useState("");
   const [text, setText] = useState("");
   const uid = localStorage.getItem('user');
+  const token = localStorage.getItem("token");
 
+  const setImage = (e) => {
+    console.log(e.target)
+    setImg(e.target.files[0]);
+  }
 
   const requestPost = async (e) => {
+    e.preventDefault();
+    console.log({uid, text, img})
 
-    await axios({
-      method: "post",
-      url: `${process.env.REACT_APP_API_URL}api/post`,
-      
-        posterId : uid,
-        message: text,
-        file: img,
-      
+    const data = new FormData();
+    data.append("posterId", uid);
+    data.append("message", text);
+    if(img !== "") data.append("file", img)
 
-
-
-    })
+    await axios.post(`${process.env.REACT_APP_API_URL}api/post`, 
+      data, 
+      {
+        headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data"
+        },
+      })
       .catch((err) => {
         console.log(err);
       });
-
-
   }
 
   return (
 
-    <form action="" onSubmit={requestPost} id="sign-up-form">
+    <form action="" enctype="multipart/form-data" id="sign-up-form">
       <label htmlFor="file">Changer d'image</label>
       <input
         type="file"
         id="file"
         name="file"
         accept=".jpg, .jpeg, .png"
-        onChange={(e) => setImg(e.target.value)}
-        value={img}
-
+        onChange={(e) => setImage(e)}
       />
 
       <br />
@@ -56,7 +60,7 @@ const CreatePost = () => {
         onChange={(e) => setText(e.target.value)}
         value={text}
       />
-      <input type="submit" value="publier" />
+      <input type="submit" onClick={requestPost} value="publier" />
     </form>
 
   )
