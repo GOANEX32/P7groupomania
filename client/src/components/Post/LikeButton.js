@@ -1,39 +1,24 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UidContext } from "../AppContext";
-import axios from "axios"
-
-
-
-
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
+import { useDispatch } from "react-redux";
+import { likePost, unlikePost } from "../../actions/post.actions";
 
 const LikeButton = ({ post }) => {
   const [liked, setLiked] = useState(false);
+  const uid = useContext(UidContext);
   
-  const uid = localStorage.getItem('user');
-  
-  
+  const dispatch = useDispatch();
 
   const like = () => {
-    
-    return axios({
-        method: "patch",
-        url: `${process.env.REACT_APP_API_URL}api/post/like-post/`+post._id,
-        data: {id : uid},
-      }).catch((err) => console.log(err));
-      
-      
-    
+    dispatch(likePost(post._id, uid))
+    setLiked(true);
   };
 
-  const unlike = () =>  {
-    console.log("unlike",uid,post._id);
-    
-    return axios({
-        method: "patch",
-        url: `${process.env.REACT_APP_API_URL}api/post/unlike-post/`+post._id,
-        data: { id: uid },
-      }).catch((err) => console.log(err));
-    
+  const unlike = () => {
+    dispatch(unlikePost(post._id, uid))
+    setLiked(false);
   };
 
   useEffect(() => {
@@ -43,13 +28,20 @@ const LikeButton = ({ post }) => {
 
   return (
     <div className="like-container">
-    
+      {uid === null && (
+        <Popup
+          trigger={<img src="./img/icons/heart.svg" alt="like" />}
+          position={["bottom center", "bottom right", "bottom left"]}
+          closeOnDocumentClick
+        >
+          <div>Connectez-vous pour aimer un post !</div>
+        </Popup>
+      )}
       {uid && liked === false && (
-        <i class="fa-solid fa-heart" onClick={like} alt="like"/>
+        <img src="./img/icons/heart.svg" onClick={like} alt="like" />
       )}
       {uid && liked && (
-        <i class="fa-regular fa-heart"onClick={unlike} alt="unlike"></i>
-        
+        <img src="./img/icons/heart-filled.svg" onClick={unlike} alt="unlike" />
       )}
       <span>{post.likers.length}</span>
     </div>

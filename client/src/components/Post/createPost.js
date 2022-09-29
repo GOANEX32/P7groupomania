@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { text } from "body-parser";
+import { useDispatch, useSelector } from "react-redux";
+import { addPost, getPosts } from "../../actions/post.actions";
 
 
 
@@ -10,6 +12,7 @@ const CreatePost = () => {
   const [text, setText] = useState("");
   const uid = localStorage.getItem('user');
   const token = localStorage.getItem("token");
+  const dispatch = useDispatch();
 
   const setImage = (e) => {
     console.log(e.target)
@@ -24,6 +27,9 @@ const CreatePost = () => {
     data.append("posterId", uid);
     data.append("message", text);
     if(img !== "") data.append("file", img)
+
+    dispatch(addPost(data));
+    dispatch(getPosts());
 
     await axios.post(`${process.env.REACT_APP_API_URL}api/post`, 
       data, 

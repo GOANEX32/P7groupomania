@@ -4,6 +4,7 @@ import axios from "axios"
 import LikeButton from "./LikeButton";
 import ModifPostButton from "./modifPostButton";
 import  Corbeille from "./deletePost";
+import { useDispatch, useSelector } from "react-redux";
 
 
 
@@ -13,6 +14,8 @@ const Card = () => {
   const [posts,setPosts] = useState([]);
 
   const token = localStorage.getItem("token");
+  const postData = useSelector((state) => state.postReducer);
+
  const listPosts = () => {
   axios.get(`${process.env.REACT_APP_API_URL}api/post/`,
   {
@@ -41,11 +44,11 @@ const Card = () => {
   return(
     
     <div>
-      <h1>Home page</h1>
+      <h1>List Post</h1>
       <section>
-        <h2>List Post</h2>
+        
         {
-          posts.map((post,index) =>
+          postData.map((post,index) =>
            
         
         <div className="post">
