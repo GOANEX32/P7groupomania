@@ -1,22 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
-import { UidContext } from "../AppContext";
-import axios from "axios"
+import { useDispatch } from "react-redux";
+import { deletePost } from "../../actions/post.actions";
 
 
 
 const Corbeille = ({ post }) => {
 
-  const supprimerAction = async () => {
-    return axios({
-      method: "delete",
-      url: `${process.env.REACT_APP_API_URL}api/post/${post._id}`,
-    })
-      .catch((err) => console.log(err));
+  const dispatch = useDispatch();
 
-  }
+  const deleteQuote = () => dispatch(deletePost(post._id));
   return (
     <div className="delete-container">
-      <i class="fas fa-trash-alt" onClick={supprimerAction} />
+      <i class="fas fa-trash-alt" onClick={deleteQuote} />
+
     </div>
 
   )
