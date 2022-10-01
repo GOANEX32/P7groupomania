@@ -31,17 +31,7 @@ const CreatePost = () => {
     dispatch(addPost(data));
     dispatch(getPosts());
 
-    await axios.post(`${process.env.REACT_APP_API_URL}api/post`, 
-      data, 
-      {
-        headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data"
-        },
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    
   }
 
   return (
