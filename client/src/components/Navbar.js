@@ -18,7 +18,7 @@ const Navbar = () => {
                     <NavLink  exact to="/">
                         
                         <i className="fas fa-globe"></i>
-                        <h3>Groupomania </h3>
+                        <h1>Groupomania </h1>
                         
                         
                     </NavLink>

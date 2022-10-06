@@ -3,6 +3,7 @@ import axios from "axios";
 import { text } from "body-parser";
 import { useDispatch, useSelector } from "react-redux";
 import { addPost, getPosts } from "../../actions/post.actions";
+import '../../styles/createPost.css';
 
 
 
@@ -37,7 +38,7 @@ const CreatePost = () => {
   return (
 
     <form action="" enctype="multipart/form-data" id="sign-up-form">
-      <label htmlFor="file">Changer d'image</label>
+      <label htmlFor="file" class="label-file">Changer d'image</label>
       <input
         type="file"
         id="file"

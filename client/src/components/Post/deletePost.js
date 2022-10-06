@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { deletePost } from "../../actions/post.actions";
+import '../../styles/post_action.css';
 
 
 
@@ -17,4 +18,4 @@ const Corbeille = ({ post }) => {
 
   )
 }
-export default Corbeille
+export default Corbeille;

@@ -2,10 +2,11 @@ import { json } from "body-parser";
 import React, { useEffect, useState } from "react";
 import axios from "axios"
 import LikeButton from "./LikeButton";
-import ModifPostButton from "./modifPostButton";
+import ModifPost from "./modifPostButton";
 import  Corbeille from "./deletePost";
 import { useDispatch, useSelector } from "react-redux";
 import { isEmpty } from "../Utils";
+import '../../styles/Card.css';
 
 
 
@@ -16,6 +17,7 @@ const Card = () => {
 
   const token = localStorage.getItem("token");
   const postData = useSelector((store) => store.postReducer);
+  const userData = useSelector((state) => state.userReducer);
  
   
 
@@ -57,18 +59,31 @@ const Card = () => {
         
         <div className="post">
           <div className="post-profil">
+          <div className="pseudo">
+                <h3>
+                  {!isEmpty(userData[0]) &&
+                    userData
+                      .map((user) => {
+                        if (user._id === post.posterId) return user.pseudo;
+                        else return null;
+                      })
+                      .join("")}
+                </h3>
+                </div>
 
           </div>
           <div className="post-contenu">
             <p>{post.message}</p>
-            <img src={post.picture} ></img>
+            <img src={post.picture} className="img"></img>
             
             
           </div>
           <div className="post-action">
             <LikeButton post={post}/>
-            <ModifPostButton post={post} />
+            <ModifPost post={post} />
             <Corbeille post={post}/>
+            
+              
             
             
           </div>

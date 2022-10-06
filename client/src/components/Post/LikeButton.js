@@ -4,6 +4,7 @@ import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import { useDispatch } from "react-redux";
 import { likePost, unlikePost } from "../../actions/post.actions";
+import '../../styles/Card.css';
 
 const LikeButton = ({ post }) => {
   const [liked, setLiked] = useState(false);
@@ -30,7 +31,7 @@ const LikeButton = ({ post }) => {
     <div className="like-container">
       {uid === null && (
         <Popup
-          trigger={<img src="./img/icons/heart.svg" alt="like" />}
+          trigger={<i class="fa-regular fa-heart"  alt="like"></i>}
           position={["bottom center", "bottom right", "bottom left"]}
           closeOnDocumentClick
         >
@@ -38,10 +39,12 @@ const LikeButton = ({ post }) => {
         </Popup>
       )}
       {uid && liked === false && (
-        <img src="./img/icons/heart.svg" onClick={like} alt="like" />
+        <i class="fa-regular fa-heart" onClick={like} alt="like"></i>
+        
       )}
       {uid && liked && (
-        <img src="./img/icons/heart-filled.svg" onClick={unlike} alt="unlike" />
+        
+        <i class="fa-solid fa-heart" onClick={unlike} alt="unlike"></i>
       )}
       <span>{post.likers.length}</span>
     </div>
