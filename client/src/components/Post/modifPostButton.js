@@ -32,7 +32,7 @@ const ModifPost = ({post}) =>{
                    
        
             
-              <div className="button-container">
+              <div className="bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto px-6 py-3">
                 <div onClick={() => setIsUpdated(!isUpdated)}>
                   <img src="./img/icons/edit.svg" alt="edit" />
                 </div>

@@ -3,6 +3,7 @@ import Log from "../components/Log";
 import { UidContext } from "../components/AppContext";
 import LeftNav from "../components/LeftNav";
 import UpdateProfil from "../components/Profil/UpdateProfil";
+import "../styles/Profil.css"
 
 
 const Profil = () => {

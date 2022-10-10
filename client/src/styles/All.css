@@ -1,0 +1,12 @@
+@import url("Card.css");
+@import url("createPost.css");
+@import url("Home.css");
+@import url("LeftNav.css");
+@import url("Navbar.css");
+@import url("post_action.css");
+@import url("Profil.css");
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
