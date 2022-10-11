@@ -6,6 +6,7 @@ import UpdateProfil from "../components/Profil/UpdateProfil";
 import "../styles/Profil.css"
 
 
+
 const Profil = () => {
   const token = useContext(UidContext);
   console.log(token);
@@ -14,8 +15,6 @@ const Profil = () => {
     <div className="profil-page">
       {token ? (
         <div>
-        
-        
         <UpdateProfil/>
         </div>
       ) : (

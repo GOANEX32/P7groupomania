@@ -18,10 +18,7 @@ const App = () => {
   }
   recup();
 
-  
-    
-  
-    return (
+  return (
       <UidContext.Provider value={token}>
         <Routers />
       </UidContext.Provider>

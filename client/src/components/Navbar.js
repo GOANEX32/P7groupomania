@@ -13,44 +13,24 @@ const Navbar = () => {
     const userData = useSelector((store) => store.userReducer);
     return (
         <nav>
-            <div className="nav-container">
-                <div className="log">
-                    <NavLink  exact to="/">
-                        
-                        <i className="fas fa-globe"></i>
-                        <h1>Groupomania </h1>
-                        
-                        
+            {token ? (
+                <div className="welcom">
+                    <NavLink to="/profil">
+                        <h5>Bienvenu {userData.pseudo} </h5>
                     </NavLink>
+                    <Logout />
                 </div>
-
-                {token ? (
-                    <ul>
-                        
-                        <li className="welcom">
-                            <NavLink   exact to="/profil">
-                                <h5>Bienvenu {userData.pseudo} </h5>
-                            </NavLink>
-
-                        </li>
-                        <Logout/>
-
-                    </ul>
-                ) : (
-                    <ul>
-                        
-                        <li>
-                            <NavLink className="nav-item" exact to="/profil">
-                                <i class="fas fa-user-alt-slash"></i>
-                            </NavLink>
-                        </li>
-                    </ul>
-                )
-
-
-                }
-            </div>
-        </nav>
+            ) : (
+                <div className="connection-home">
+                    <NavLink className="nav-item" to="/profil">
+                        <h2>connection</h2>
+                    </NavLink>
+                    <NavLink className="nav-item" to="/">
+                        <h2>Accueil</h2>
+                    </NavLink>
+                    </div>
+            )}
+            </nav>
     )
 }
 

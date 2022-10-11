@@ -1,16 +1,22 @@
-.nav-container{
-    display: flex;
-    
-    flex-direction: row;
-    justify-content: space-evenly;
-    
 
-}
 a{
     text-decoration: none;
 }
+
 .nav-item{
-    display: flex;
-    flex-direction: row;
-    
+    text-align: right;
+    color: #4E5166;
 }
+
+.nav-item :hover{
+    color: #FD2D01;
+}
+
+.connection-home{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+

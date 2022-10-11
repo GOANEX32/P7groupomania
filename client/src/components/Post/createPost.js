@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
-import { text } from "body-parser";
 import { useDispatch, useSelector } from "react-redux";
 import { addPost, getPosts } from "../../actions/post.actions";
 import '../../styles/createPost.css';
