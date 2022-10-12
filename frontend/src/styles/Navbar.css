@@ -1,0 +1,39 @@
+
+a{
+    text-decoration: none;
+}
+
+.nav-item{
+    text-align: right;
+    color: #4E5166;
+}
+
+.nav-item :hover{
+    color: #FD2D01;
+}
+
+.connection-home{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.welcom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 10%;
+    margin-right: 10%;
+    color: #4E5166;
+
+}
+
+.active-nav{
+    color: #4E5166;
+
+}
+.active-nav:hover{
+    color: #FD2D01;
+}
+
