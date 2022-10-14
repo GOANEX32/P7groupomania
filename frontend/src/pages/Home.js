@@ -11,7 +11,7 @@ const Home = () => {
 
   return (
 
-    <div className="home bg-slate-900">
+    <div className="home ">
       {token ? (
         <div>
           <CreatePost />

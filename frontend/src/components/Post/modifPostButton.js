@@ -1,20 +1,21 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UidContext } from "../AppContext";
-import axios from "axios"
+
 import { useDispatch, useSelector } from "react-redux";
 import { updatePost } from "../../actions/post.actions";
 import { isEmpty } from "../Utils";
-import '../../styles/Card.css';
 
 
 
 
 
-const ModifPost = ({ post }) => {
+
+
+const ModifPost = ({ post,userData }) => {
   const [isUpdated, setIsUpdated] = useState(false);
   const [textUpdate, setTextUpdate] = useState(null);
   const dispatch = useDispatch();
-  const userData = useSelector((state) => state.usersReducer);
+  
 
   const updateItem = () => {
     if (textUpdate) {
@@ -24,11 +25,29 @@ const ModifPost = ({ post }) => {
   };
 
   return (
-    <div className="bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto px-6 py-3">
-      <div onClick={() => setIsUpdated(!isUpdated)}>
-        <img src="./img/icons/edit.svg" alt="edit" />
+    <div>
+    {isUpdated === false && <p>{post.message}</p>}
+    {isUpdated && (
+      <div className="update-post">
+        <textarea
+          defaultValue={post.message}
+          onChange={(e) => setTextUpdate(e.target.value)}
+        />
+        <div className="button-container">
+          <button className="btn" onClick={updateItem}>
+            Valider modification
+          </button>
+        </div>
       </div>
-    </div>
+    )}
+     {userData._id === post.posterId && (
+      <div className="button-container">
+        <div onClick={() => setIsUpdated(!isUpdated)}>
+          <img src="./img/icons/edit.svg" alt="edit" />
+        </div>
+     </div>
+     )}
+     </div>
   )
 }
 

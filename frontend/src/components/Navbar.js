@@ -14,11 +14,11 @@ const Navbar = () => {
     return (
         <nav>
             {token ? (
-                <div className="welcom">
+                <div className="welcom mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 relative flex h-16 items-center justify-between bg-red-400">
                     <NavLink to="/"  className="active-nav">
-                    <i class="fas fa-home fa-lg"></i>
+                    <i class="fas fa-home fa-lg" ></i>
                     </NavLink>
-                    <NavLink to="/profil" className="active-nav">
+                    <NavLink to="/profil" className="active-nav bg-neutral-50 text-white px-3 py-2 rounded-md text-sm font-medium">
                         <h5>Bienvenu {userData.pseudo} </h5>
                     </NavLink>
                     <Logout />

@@ -1,42 +1,23 @@
-import { json } from "body-parser";
-import React, { useEffect, useState } from "react";
-import axios from "axios"
+
 import LikeButton from "./LikeButton";
 import ModifPost from "./modifPostButton";
 import Corbeille from "./deletePost";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { isEmpty } from "../Utils";
 import '../../styles/Card.css';
 
 
-const Card = () => {
-  const [posts, setPosts] = useState([]);
 
-  const token = localStorage.getItem("token");
+const Card = () => {
+  
+
+  
   const postData = useSelector((store) => store.postReducer);
   const userData = useSelector((state) => state.userReducer);
+ 
 
 
 
-  const listPosts = () => {
-    axios.get(`${process.env.REACT_APP_API_URL}api/post/`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": 'application/json'
-        }
-      }).then(res => {
-
-        setPosts(res.data)
-        console.log(res.data)
-
-      }).catch((err) => {
-        console.log(err)
-      })
-  }
-  useEffect(() => {
-    { listPosts() }
-  }, [])
 
 
   return (
@@ -50,7 +31,7 @@ const Card = () => {
           postData.map((post, index) =>
 
 
-            <div className="post">
+            <div className="post" key={post._id}>
               <div className="post-profil">
                 <div className="pseudo">
                   
@@ -69,13 +50,16 @@ const Card = () => {
 
               </div>
               <div className="post-contenu">
-                <p>{post.message}</p>
-                <img src={post.picture} className="img"></img>
+             
+              
+               <img src={post.picture} className="img" alt="images"></img>
+               
                 </div>
               <div className="post-action">
-                <LikeButton post={post} />
-                <ModifPost post={post} />
-                <Corbeille post={post} />
+                <LikeButton post={post}   />
+                <ModifPost post={post} userData={userData}/>
+                
+                <Corbeille post={post} userData={userData} />
               </div>
             </div>
           )}

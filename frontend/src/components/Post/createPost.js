@@ -34,7 +34,8 @@ const CreatePost = () => {
 
   return (
 
-    <form action="" enctype="multipart/form-data" id="sign-up-form">
+    <form action="" enctype="multipart/form-data" id="Post-form">
+      
       <label htmlFor="file" class="label-file">Changer d'image</label>
       <input
         type="file"
@@ -45,10 +46,11 @@ const CreatePost = () => {
       />
 
       <br />
-      <label htmlFor="text">text</label>
+      <label htmlFor="text"></label>
       <br />
       <input
         type="text"
+        class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-red-100 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="text"
         name="text"
         id="text"
         onChange={(e) => setText(e.target.value)}

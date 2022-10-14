@@ -65,11 +65,14 @@ const SignUpForm = () => {
           </h4>
         </>
       ) : (
+        
         <form action="" onSubmit={handleRegister} id="sign-up-form">
-          <label htmlFor="pseudo">Pseudo</label>
           <br />
+          <label htmlFor="pseudo"></label>
+          
           <input
             type="text"
+            class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-red-100 focus:outline-none focus:ring-red-500 sm:text-sm" placeholder="Pseudo"
             name="pseudo"
             id="pseudo"
             onChange={(e) => setPseudo(e.target.value)}
@@ -77,10 +80,11 @@ const SignUpForm = () => {
           />
           <div className="pseudo error"></div>
           <br />
-          <label htmlFor="email">Email</label>
-          <br />
+          <label htmlFor="email"></label>
+          
           <input
             type="text"
+            class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-red-100 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Email"
             name="email"
             id="email"
             onChange={(e) => setEmail(e.target.value)}
@@ -88,10 +92,11 @@ const SignUpForm = () => {
           />
           <div className="email error"></div>
           <br />
-          <label htmlFor="password">Mot de passe</label>
-          <br />
+          <label htmlFor="password"></label>
+          
           <input
             type="password"
+            class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-red-100 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Mot de passe"
             name="password"
             id="password"
             onChange={(e) => setPassword(e.target.value)}
@@ -99,10 +104,11 @@ const SignUpForm = () => {
           />
           <div className="password error"></div>
           <br />
-          <label htmlFor="password-conf">Confirmer mot de passe</label>
-          <br/>
+          <label htmlFor="password-conf"></label>
+          
           <input
             type="password"
+            class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-red-100 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Confirmer mot de passe"
             name="password"
             id="password-conf"
             onChange={(e) => setControlPassword(e.target.value)}
@@ -119,7 +125,7 @@ const SignUpForm = () => {
           </label>
           <div className="terms error"></div>
           <br />
-          <input type="submit" value="Valider inscription" />
+          <input type="submit" class="group relative flex w-full justify-center rounded-md border border-transparent bg-red-400 py-2 px-4 text-sm font-medium text-white hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"  value="Valider inscription" />
         </form>
       )}
     </>
