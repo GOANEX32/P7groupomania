@@ -6,10 +6,10 @@ const Logout = () => {
         window.location = "/";
     }
     return (
-        <li onClick={logout}>
+        <div onClick={logout}>
             <i class="fas fa-sign-out-alt"></i>
 
-        </li>
+        </div>
         )
 }
 export default Logout

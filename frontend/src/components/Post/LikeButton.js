@@ -28,7 +28,7 @@ const LikeButton = ({ post }) => {
   }, [uid, post.likers, liked]);
 
   return (
-    <div className="like-container">
+    <div className="like-container icon-div">
       {uid === null && (
         <Popup
           trigger={<i class="fa-regular fa-heart"  alt="like"></i>}

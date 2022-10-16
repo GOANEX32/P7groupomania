@@ -10,6 +10,21 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    margin-top: 50px;
+    
+
+    font-size: 30px;
+    text-align: center;
+    font-size: 30px;
 
     
+}
+#register{
+    font-size: 30px;
+}
+#register:hover{
+    color: red;
+}
+#login:hover{
+    color: red;
 }

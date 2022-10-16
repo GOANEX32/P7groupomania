@@ -23,9 +23,12 @@ a{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 15%;
+    margin-right: 0%;
     color: #4E5166;
+    font-size: 50px;
+    border-radius: 10px 10px 10px 10px;
+    width: 80%;
 
 }
 
@@ -37,3 +40,15 @@ a{
     color: #FD2D01;
 }
 
+.connection-home{
+    
+    font-size: 30px;
+}
+
+@media (max-width: 576px) {
+    .welcom{
+        margin-left: 0%;
+        margin-right: 0%;
+        width: 100%;
+    }
+}

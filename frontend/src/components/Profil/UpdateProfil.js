@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import UploadImg from "./Upload.Img";
+import { dateParser } from "../Utils";
 
 
 const UpdateProfil = () => {
@@ -11,14 +12,13 @@ const UpdateProfil = () => {
         <div className="profil-container">
 
             <h1>Profil de {userData.pseudo} </h1>
-            <div className="update-container">
-                <div className="left-part">
-                    <h3>Photo de profil</h3>
-                    <img src={userData.picture} alt="user-picture" />
-                    <UploadImg />
-                </div>
-            </div>
+            <br/>
+            <h2>{userData.email}</h2>
+            <br/>
+            <h3>Membre depuis le : {dateParser(userData.createdAt)}</h3>
+                    
         </div>
+        
     )
 }
 

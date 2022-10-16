@@ -11,11 +11,11 @@ import { isEmpty } from "../Utils";
 
 
 
-const ModifPost = ({ post,userData }) => {
+const ModifPost = ({ post, userData }) => {
   const [isUpdated, setIsUpdated] = useState(false);
   const [textUpdate, setTextUpdate] = useState(null);
   const dispatch = useDispatch();
-  
+
 
   const updateItem = () => {
     if (textUpdate) {
@@ -26,28 +26,34 @@ const ModifPost = ({ post,userData }) => {
 
   return (
     <div>
-    {isUpdated === false && <p>{post.message}</p>}
-    {isUpdated && (
-      <div className="update-post">
-        <textarea
-          defaultValue={post.message}
-          onChange={(e) => setTextUpdate(e.target.value)}
-        />
-        <div className="button-container">
-          <button className="btn" onClick={updateItem}>
-            Valider modification
-          </button>
+
+      {isUpdated && (
+
+        <div className="update-post">
+          <textarea
+            maxlength="88"
+            defaultValue={post.message}
+            onChange={(e) => setTextUpdate(e.target.value)}
+          />
+          <div className="button-container">
+            <button className="btn" onClick={updateItem}>
+              Valider modification
+            </button>
+          </div>
         </div>
-      </div>
-    )}
-     {userData._id === post.posterId && (
-      <div className="button-container">
-        <div onClick={() => setIsUpdated(!isUpdated)}>
-          <img src="./img/icons/edit.svg" alt="edit" />
+
+      )}
+      {userData._id === post.posterId && (
+        <div className="button-container ">
+          <div onClick={() => setIsUpdated(!isUpdated)}>
+            <i class="fa-solid fa-pen-to-square  icon-div"></i>
+          </div>
+          {isUpdated === false && <p className="text-post">{post.message}</p>}
         </div>
-     </div>
-     )}
-     </div>
+      )}
+
+    </div>
+
   )
 }
 

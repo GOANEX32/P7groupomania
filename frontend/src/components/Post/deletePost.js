@@ -12,8 +12,9 @@ const Corbeille = ({ post,userData }) => {
   const deleteQuote = () => dispatch(deletePost(post._id));
   return (
     
-    <div className="delete-container">
-      {userData._id === post.posterId && (
+    
+    <div className="delete-container  icon-div">
+      {userData._id === post.posterId || userData.isAdmin == true && (
       <i class="fas fa-trash-alt" onClick={deleteQuote} />
       )}
     </div>
