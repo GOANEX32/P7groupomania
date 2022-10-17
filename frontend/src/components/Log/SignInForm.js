@@ -42,7 +42,7 @@ const SignInForm = () => {
       <br />
       <input
         type="text"
-        class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-red-100 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Email address"
+        className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-red-100 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Email address"
         name="email"
         id="email"
         onChange={(e) => setEmail(e.target.value)}
@@ -54,7 +54,7 @@ const SignInForm = () => {
       
       <input
         type="password"
-        class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-red-100 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Password"
+        className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-red-100 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Password"
         name="password"
         id="password"
         onChange={(e) => setPassword(e.target.value)}
@@ -62,7 +62,7 @@ const SignInForm = () => {
       />
       <div className="password error"></div>
       <br />
-      <input type="submit" class="group relative flex w-full justify-center rounded-md border border-transparent bg-red-400 py-2 px-4 text-sm font-medium text-white hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" value="Se connecter" />
+      <input type="submit" className="group relative flex w-full justify-center rounded-md border border-transparent bg-red-400 py-2 px-4 text-sm font-medium text-white hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" value="Se connecter" />
     </form>
   );
 };

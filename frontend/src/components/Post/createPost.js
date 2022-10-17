@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addPost, getPosts } from "../../actions/post.actions";
 import '../../styles/createPost.css';
 
@@ -34,7 +34,7 @@ const CreatePost = () => {
 
   return (
 
-    <form action="" enctype="multipart/form-data" id="Post-form" >
+    <form action="" encType="multipart/form-data" id="Post-form" >
       <input
         type="file"
         
@@ -50,8 +50,8 @@ const CreatePost = () => {
       <br />
       <input
         type="text"
-        maxlength="88"
-        class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-red-100 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="text"
+        maxLength="88"
+        className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-red-100 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="text"
         name="text"
         id="text"
         onChange={(e) => setText(e.target.value)}

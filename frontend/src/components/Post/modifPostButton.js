@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
-import { UidContext } from "../AppContext";
+import React, {  useState } from "react";
 
-import { useDispatch, useSelector } from "react-redux";
+
+import { useDispatch, } from "react-redux";
 import { updatePost } from "../../actions/post.actions";
-import { isEmpty } from "../Utils";
+
 
 
 
@@ -46,7 +46,7 @@ const ModifPost = ({ post, userData }) => {
       {userData._id === post.posterId && (
         <div className="button-container ">
           <div onClick={() => setIsUpdated(!isUpdated)}>
-            <i class="fa-solid fa-pen-to-square  icon-div"></i>
+            <i className="fa-solid fa-pen-to-square  icon-div"></i>
           </div>
           {isUpdated === false && <p className="text-post">{post.message}</p>}
         </div>
