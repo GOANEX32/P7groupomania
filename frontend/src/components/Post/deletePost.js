@@ -10,6 +10,7 @@ const Corbeille = ({ post,userData }) => {
   const dispatch = useDispatch();
 
   const deleteQuote = () => dispatch(deletePost(post._id));
+  
   return (
     
     
@@ -18,6 +19,7 @@ const Corbeille = ({ post,userData }) => {
       <i className="fas fa-trash-alt" onClick={deleteQuote} />
       )}
     </div>
+    
 
   )
   

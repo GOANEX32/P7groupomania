@@ -9,15 +9,14 @@ import '../../styles/Card.css';
 const LikeButton = ({ post }) => {
   const [liked, setLiked] = useState(false);
   const uid = useContext(UidContext);
-  
   const dispatch = useDispatch();
 
-  const like = () => {
+  const like = async () => {
     dispatch(likePost(post._id, uid))
     setLiked(true);
   };
 
-  const unlike = () => {
+  const unlike = async () => {
     dispatch(unlikePost(post._id, uid))
     setLiked(false);
   };
@@ -25,7 +24,7 @@ const LikeButton = ({ post }) => {
   useEffect(() => {
     if (post.likers.includes(uid)) setLiked(true);
     else setLiked(false);
-  }, [uid, post.likers, liked]);
+  }, [uid, post.likers, liked] );
 
   return (
     <div className="like-container icon-div">

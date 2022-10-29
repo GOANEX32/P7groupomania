@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, {  useState, useEffect } from "react";
 
 
 import { useDispatch, } from "react-redux";
@@ -18,11 +18,12 @@ const ModifPost = ({ post, userData }) => {
 
 
   const updateItem = () => {
+    
     if (textUpdate) {
       dispatch(updatePost(post._id, textUpdate));
     }
     setIsUpdated(false);
-  };
+  }
 
   return (
     <div>
@@ -31,7 +32,7 @@ const ModifPost = ({ post, userData }) => {
 
         <div className="update-post">
           <textarea
-            maxlength="88"
+            maxLength="88"
             defaultValue={post.message}
             onChange={(e) => setTextUpdate(e.target.value)}
           />
@@ -43,7 +44,7 @@ const ModifPost = ({ post, userData }) => {
         </div>
 
       )}
-      {userData._id === post.posterId && (
+      {(userData._id === post.posterId || userData.isAdmin === true ) && (
         <div className="button-container ">
           <div onClick={() => setIsUpdated(!isUpdated)}>
             <i className="fa-solid fa-pen-to-square  icon-div"></i>

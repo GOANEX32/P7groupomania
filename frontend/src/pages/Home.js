@@ -3,7 +3,7 @@ import CreatePost from "../components/Post/createPost.js";
 import "../styles/All.css"
 import React, { useContext } from "react";
 import { UidContext } from "../components/AppContext";
-import groupomania from "../styles/image/icon-left-font.png"
+import groupomania from "../styles/image/icon-left-font.png";
 
 
 const Home = () => {
@@ -13,10 +13,10 @@ const Home = () => {
 
     <div className="home ">
       {token ? (
-        <div>
+        <>
           <CreatePost />
           <Card />
-        </div>
+        </>
 
       ) : (
         <img className="gri" src={groupomania} />
