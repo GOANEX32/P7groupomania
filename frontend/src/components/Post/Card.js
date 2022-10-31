@@ -12,8 +12,9 @@ const Card = () => {
   
   const postData = useSelector((state) => state.postReducer);
   const userData = useSelector((state) => state.userReducer);
-  const [post, setPost] = React.useState([]);
-  const [user, setUser] = React.useState([]);
+  const [post, setPost] = useState([]);
+  const [user, setUser] = useState([]);
+  useEffect(() => {
    function getPosts() {
    
       return axios
@@ -24,8 +25,10 @@ const Card = () => {
           }),[postData,userData]
         
     }
-    
     getPosts();
+  },[]);
+    
+    
 
     return (
     <div>
@@ -34,7 +37,7 @@ const Card = () => {
       <>
       {
           !isEmpty(post[0]) &&
-          post.reverse().map((post) =>(
+          post.reverse().map((post,index) =>(
            <div className="post" key={post._id}>
               
               <div className="post-contenu">
