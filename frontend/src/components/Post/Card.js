@@ -12,23 +12,9 @@ const Card = () => {
   
   const postData = useSelector((state) => state.postReducer);
   const userData = useSelector((state) => state.userReducer);
-  const [post, setPost] = useState([]);
-  const [user, setUser] = useState([]);
-  useEffect(() => {
-   function getPosts() {
-   
-      return axios
-        .get(`${process.env.REACT_APP_API_URL}api/post/`)
-        .then((res) => {
-          
-          setPost(res.data);
-          }),[postData,userData]
-        
-    }
-    getPosts();
-  },[]);
-    
-    
+  
+
+ 
 
     return (
     <div>
@@ -36,8 +22,8 @@ const Card = () => {
       <section>
       <>
       {
-          !isEmpty(post[0]) &&
-          post.reverse().map((post,index) =>(
+          !isEmpty(postData[0]) &&
+          postData.map((post,index) =>(
            <div className="post" key={post._id}>
               
               <div className="post-contenu">
@@ -52,12 +38,8 @@ const Card = () => {
             </div>
           )
           )}
-          
-          </>
-          
-          
-          
-      </section>
+      </>
+        </section>
       
     </div>
 

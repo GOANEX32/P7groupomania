@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useContext, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { deletePost } from "../../actions/post.actions";
 import '../../styles/post_action.css';
@@ -8,8 +8,10 @@ import '../../styles/post_action.css';
 const Corbeille = ({ post,userData }) => {
 
   const dispatch = useDispatch();
+  const deleteQuote = async () =>  dispatch(deletePost(post.posterId))
+ 
 
-  const deleteQuote = () => dispatch(deletePost(post._id));
+
   
   return (
     
