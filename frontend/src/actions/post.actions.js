@@ -28,7 +28,7 @@ export const getPosts = (num) => {
         const array = res.data.slice(num,0);
         dispatch({ type: GET_POSTS, payload: array });
         dispatch({ type: GET_ALL_POSTS, payload: res.data });
-      }).reverse()
+      })
       .catch((err) => console.log(err));
   };
 };

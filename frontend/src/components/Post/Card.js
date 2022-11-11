@@ -12,6 +12,7 @@ const Card = () => {
   
   const postData = useSelector((state) => state.postReducer);
   const userData = useSelector((state) => state.userReducer);
+  console.log(postData);
   
 
  
