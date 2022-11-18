@@ -25,8 +25,7 @@ const Card = () => {
 
           setPost(res.data)
           console.log(post)
-        })
-        .catch((err) => {
+        }).catch((err) => {
           console.log(err)
         })
       }
@@ -43,7 +42,6 @@ const Card = () => {
           post.map((post, index) => (
               <div className="post" key={post._id}>
                 {console.log(post.likers)}
-
                 <div className="post-contenu">
                   <img src={post.picture} className="img" alt="images"></img>
                 </div>
