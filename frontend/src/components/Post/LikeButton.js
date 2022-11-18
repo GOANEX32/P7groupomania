@@ -9,7 +9,7 @@ import '../../styles/Card.css';
 const LikeButton = ({ post }) => {
   const [liked, setLiked] = useState(false);
   const uid = useContext(UidContext);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const like = async () => {
     dispatch(likePost(post._id, uid))
