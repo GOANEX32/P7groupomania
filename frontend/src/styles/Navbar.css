@@ -34,10 +34,11 @@ a{
 
 .active-nav{
     color: #4E5166;
+    font-size: 40px;
 
 }
 .active-nav:hover{
-    color: #FD2D01;
+    color:white;
 }
 
 .connection-home{

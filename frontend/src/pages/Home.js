@@ -14,9 +14,11 @@ const Home = () => {
     <div className="home ">
       {token ? (
         <>
+        <img className="gri" src={groupomania} />
           <CreatePost />
           <Card />
         </>
+        
 
       ) : (
         <img className="gri" src={groupomania} />

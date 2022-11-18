@@ -10,8 +10,12 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 50px;
+    transition: transform 0.8s;
 
     
+}
+.post:hover{
+    transform: scale(1.05);
 }
 
 section{

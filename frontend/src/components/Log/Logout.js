@@ -7,7 +7,7 @@ const Logout = () => {
     }
     return (
         <div onClick={logout}>
-            <i className="fas fa-sign-out-alt"></i>
+            <i className="active-nav fas fa-sign-out-alt"></i>
 
         </div>
         )

@@ -35,7 +35,7 @@ const Card = () => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">List Post</h1>
+      
       <section>
         <>
           {

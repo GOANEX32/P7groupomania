@@ -57,7 +57,7 @@ const CreatePost = () => {
         onChange={(e) => setText(e.target.value)}
         value={text}
       />
-      <input type="submit" className="bg-red-400 w-[200px] rounded-md font-medium my-6 mx-auto px-6 py-3" onClick={requestPost} value="publier" />
+      <input type="submit" className="create-submit bg-red-400 w-[200px] rounded-md font-medium my-6 mx-auto px-6 py-3" onClick={requestPost} value="Cree le post" />
     </form>
 
   )
