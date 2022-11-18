@@ -42,7 +42,6 @@ const LikeButton = ({ post }) => {
         
       )}
       {uid && liked && (
-        
         <i className="fa-solid fa-heart" onClick={unlike} alt="unlike"></i>
       )}
       <span>{post.likers.length}</span>

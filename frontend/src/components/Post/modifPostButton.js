@@ -1,24 +1,13 @@
-import React, {  useState, useEffect } from "react";
-
-
+import React, { useState } from "react";
 import { useDispatch, } from "react-redux";
 import { updatePost } from "../../actions/post.actions";
-
-
-
-
-
-
-
 
 const ModifPost = ({ post, userData }) => {
   const [isUpdated, setIsUpdated] = useState(false);
   const [textUpdate, setTextUpdate] = useState(null);
   const dispatch = useDispatch();
 
-
   const updateItem = () => {
-    
     if (textUpdate) {
       dispatch(updatePost(post._id, textUpdate));
     }
@@ -27,7 +16,6 @@ const ModifPost = ({ post, userData }) => {
 
   return (
     <div>
-
       {isUpdated && (
 
         <div className="update-post">
@@ -44,7 +32,7 @@ const ModifPost = ({ post, userData }) => {
         </div>
 
       )}
-      {(userData._id === post.posterId || userData.isAdmin === true ) && (
+      {(userData._id === post.posterId || userData.isAdmin === true) && (
         <div className="button-container ">
           <div onClick={() => setIsUpdated(!isUpdated)}>
             <i className="fa-solid fa-pen-to-square  icon-div"></i>
